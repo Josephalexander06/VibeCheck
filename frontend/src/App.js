@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Music, Book, Search, Star, ArrowLeft, Heart, Zap, Cloud, Sun, Smile, Scale, Download, ExternalLink } from './components/Icons';
 
-const API_BASE = "https://vibecheck-aqd5.onrender.com";
+import { API_BASE_URL } from "./config";
 
 
 const BOOK_APIS = {
