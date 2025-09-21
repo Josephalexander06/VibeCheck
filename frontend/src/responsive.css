@@ -1,0 +1,301 @@
+/* Base Responsive Setup */
+:root {
+  --content-padding: 1rem;
+  --header-height: 4rem;
+  --footer-height: 3rem;
+}
+
+/* Mobile First - Small devices (< 640px) */
+.container {
+  width: 100%;
+  padding: var(--content-padding);
+  margin: 0 auto;
+}
+
+/* Adjust typography for mobile */
+.text-4xl {
+  font-size: 2rem !important;
+  line-height: 2.25rem !important;
+}
+
+.text-2xl {
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+}
+
+.pt-20 {
+  padding-top: 3rem !important;
+}
+
+/* Card Adjustments */
+.card {
+  padding: 1rem !important;
+  margin-bottom: 1rem;
+}
+
+/* Button Adjustments */
+button {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem !important;
+  margin-bottom: 0.75rem;
+}
+
+/* Grid Adjustments */
+.grid {
+  grid-template-columns: 1fr !important;
+  gap: 1rem !important;
+}
+
+/* Form Elements */
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem !important;
+  font-size: 1rem !important;
+}
+
+/* Music and Book Cards */
+.music-card, .book-card {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Navigation */
+.nav-menu {
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Mood Assessment */
+.mood-options {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mood-option {
+  width: 100%;
+}
+
+/* Loading States */
+.loading-overlay {
+  position: fixed;
+  top: var(--header-height);
+}
+
+/* Small devices (640px and up) */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding: 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .text-4xl {
+    font-size: 2.25rem !important;
+  }
+
+  button {
+    width: auto;
+    min-width: 150px;
+  }
+
+  .music-card, .book-card {
+    width: calc(50% - 1rem);
+  }
+}
+
+/* Medium devices (768px and up) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+
+  .text-4xl {
+    font-size: 2.5rem !important;
+  }
+
+  .pt-20 {
+    padding-top: 5rem !important;
+  }
+
+  .nav-menu {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .mood-options {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .mood-option {
+    width: calc(50% - 1rem);
+  }
+}
+
+/* Large devices (1024px and up) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .music-card, .book-card {
+    width: calc(33.333% - 1rem);
+  }
+
+  .mood-option {
+    width: calc(33.333% - 1rem);
+  }
+}
+
+/* Extra large devices (1280px and up) */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Performance Optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+}
+
+/* Touch Optimizations */
+@media (hover: none) {
+  button, 
+  a {
+    cursor: none;
+  }
+
+  .hover\:scale-105:hover {
+    transform: none !important;
+  }
+
+  .hover\:shadow-lg:hover {
+    box-shadow: none !important;
+  }
+}
+
+/* Motion Reduction */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    padding: 2cm !important;
+  }
+}
+
+/* Animation Optimizations */
+.animated {
+  will-change: transform, opacity;
+}
+
+/* Improved Card Layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Flexible Images */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Better Form Layout */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Improved Button States */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Loading States */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Skeleton Loading */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(190, 190, 190, 0.2) 25%,
+    rgba(129, 129, 129, 0.24) 37%,
+    rgba(190, 190, 190, 0.2) 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+/* Focus States */
+:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Improved Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
